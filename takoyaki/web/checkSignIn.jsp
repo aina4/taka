@@ -1,11 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
 <%@page import="java.sql.*" %>
-<%@page import="java.io.*" %>
 <!DOCTYPE html>
 <html>
 	<body>
 		<%
-			PrintWriter print = response.getWriter(); 
 			String username2 = request.getParameter("username");
 			String password2 = request.getParameter("password");
 			
