@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.1
+-- version 5.0.4
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 11, 2021 at 07:58 AM
--- Server version: 10.4.11-MariaDB
--- PHP Version: 7.4.2
+-- Generation Time: Dec 11, 2021 at 02:28 PM
+-- Server version: 10.4.17-MariaDB
+-- PHP Version: 8.0.0
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -25,47 +24,32 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `admin`
---
-
-CREATE TABLE `admin` (
-  `adminID` int(11) NOT NULL,
-  `adminName` varchar(50) NOT NULL,
-  `adminUsername` varchar(20) NOT NULL,
-  `adminPhoneNum` int(11) NOT NULL,
-  `adminPwd` varchar(20) NOT NULL,
-  `adminEmail` varchar(30) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `customers`
 --
 
 CREATE TABLE `customers` (
   `custID` int(11) NOT NULL,
-  `custName` varchar(100) NOT NULL,
-  `custState` varchar(20) NOT NULL,
-  `custAddress` varchar(200) NOT NULL,
   `custPwd` varchar(20) NOT NULL,
-  `custPhoneNum` int(12) NOT NULL,
+  `custPhoneNum` varchar(12) NOT NULL,
   `custEmail` varchar(30) NOT NULL,
-  `custUsername` varchar(20) NOT NULL,
-  `custStreet` varchar(50) NOT NULL,
-  `custCity` varchar(20) NOT NULL,
-  `custPoscode` int(6) NOT NULL
+  `custUsername` varchar(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `product`
+--
+
+CREATE TABLE `product` (
+  `productID` int(11) NOT NULL,
+  `productName` varchar(25) NOT NULL,
+  `productPrice` double NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Indexes for dumped tables
 --
-
---
--- Indexes for table `admin`
---
-ALTER TABLE `admin`
-  ADD PRIMARY KEY (`adminID`);
 
 --
 -- Indexes for table `customers`
@@ -74,20 +58,26 @@ ALTER TABLE `customers`
   ADD PRIMARY KEY (`custID`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- Indexes for table `product`
 --
+ALTER TABLE `product`
+  ADD PRIMARY KEY (`productID`);
 
 --
--- AUTO_INCREMENT for table `admin`
+-- AUTO_INCREMENT for dumped tables
 --
-ALTER TABLE `admin`
-  MODIFY `adminID` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `customers`
 --
 ALTER TABLE `customers`
   MODIFY `custID` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `product`
+--
+ALTER TABLE `product`
+  MODIFY `productID` int(11) NOT NULL AUTO_INCREMENT;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
