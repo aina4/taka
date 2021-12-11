@@ -48,7 +48,7 @@ ResultSet resultSet = null;
         try{
         connection = DriverManager.getConnection(connectionUrl+database, userid, password);
         statement=connection.createStatement();
-        String sql ="select * from customer where ";
+        String sql ="select * from customer ";
         resultSet = statement.executeQuery(sql);
         while(resultSet.next()){
         %>
