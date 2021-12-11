@@ -42,7 +42,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit thi
     <body>
         <div class="container-login100" style="background-image: url('background.jpg');">
 		<div class="wrap-login100 p-l-55 p-r-55 p-t-80 p-b-30">
-			<form class="login100-form validate-form">
+			<form class="login100-form validate-form" action = "checkSignIn.jsp">
 				<span class="login100-form-title p-b-37">
 					Sign In
 				</span>
@@ -62,14 +62,12 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit thi
 						Sign In
 					</button>
 				</div>
-
+				<span style="color:red;">${error}</span>
 				<div class="text-center p-t-57 p-b-20">
 					<span class="txt1">
 						First time user?
 					</span>
 				</div>
-
-
 				<div class="text-center">
 					<a href="signUp.html" class="txt2 hov1">
 						Sign Up
