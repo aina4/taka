@@ -48,7 +48,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit thi
 				</span>
 
 				<div class="wrap-input100 validate-input m-b-20" data-validate="Enter username or email">
-					<input class="input100" type="text" name="username" placeholder="Username or Email">
+					<input class="input100" type="text" name="username" placeholder="Username">
 					<span class="focus-input100"></span>
 				</div>
 
@@ -56,13 +56,13 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit thi
 					<input class="input100" type="password" name="pass" placeholder="Password">
 					<span class="focus-input100"></span>
 				</div>
-
+				<span style="color:red;">${error}</span><br><br>
 				<div class="container-login100-form-btn">
 					<button class="login100-form-btn">
 						Sign In
 					</button>
 				</div>
-				<span style="color:red;">${error}</span>
+				
 				<div class="text-center p-t-57 p-b-20">
 					<span class="txt1">
 						First time user?
