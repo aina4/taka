@@ -1,1 +1,1 @@
-web: java -jar target/taka-1.0.0.jar
+web:java -jar target/taka-1.0.0.jar
