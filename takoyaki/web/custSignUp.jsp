@@ -2,31 +2,27 @@
 <%@page import="java.sql.*" %>
 <%
  
-        String custName = request.getParameter("custName");
-		String custPwd = request.getParameter("custPwd");
-		String custPhoneNum = request.getParameter("custPhoneNum");
-        String custEmail = request.getParameter("custEmail");
-		String custUsername = request.getParameter("custUsername");
+		String custPwd = request.getParameter("pass");
+		String custPhoneNum = request.getParameter("phoneNumber");
+        String custEmail = request.getParameter("email");
+		String custUsername = request.getParameter("username");
 
 		try{
 			Class.forName("com.mysql.jdbc.Driver");
-			Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/tiedye","root","");
-			PreparedStatement pst = con.prepareStatement("insert into customers(custName, custPwd, custPhoneNum, custEmail, custUsername)values(?,?,?,?,?)");
-		
-			pst.setString(1, custName);
-			pst.setString(4, custPwd);
-			pst.setString(5, custPhoneNum);
-			pst.setString(6, custEmail);
-			pst.setString(7, custUsername);
-			pst.executeUpdate();
+			Connection con = DriverManager.getConnection("jdbc:mysql://localhost/tiedye","root","");
+			//PreparedStatement pst = con.prepareStatement("insert into customers(custPwd, custPhoneNum, custEmail, custUsername)values(?,?,?,?)");
+			Statement stmt=con.createStatement(); 
+			String sql = "insert into customers(custPwd, custPhoneNum, custEmail, custUsername) values('"+custPwd+"','"+custPhoneNum+"','"+custEmail+"','"+custUsername+"')";
 			
-			int x = pst.executeUpdate();
+			int x = stmt.executeUpdate(sql);
 			if(x>0){
-				out.println("Successfully");
+				response.sendRedirect("newhomepage.jsp");
 			}else{
-				out.println("Failed");
+				request.setAttribute("error", "Error encountered. Try Again");
+				RequestDispatcher rd = request.getRequestDispatcher("signUp.jsp");
+				rd.include(request, response);
 			}
-			
+			con.close();
 		}catch(Exception e){
 			out.println(e);
 		}
