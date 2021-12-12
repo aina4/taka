@@ -137,6 +137,7 @@
 		    <a href="#">About Us</a>
 		  <a href="#">Shop</a>
 		  <a href="#" class="active">Home</a>
+		<a href="profileUpdate.jsp">Edit Profile</a>
 		</div>
 		<div class="row">
 		<%
