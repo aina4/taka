@@ -29,7 +29,7 @@ ps.setString(5, custEmail);
 int i = ps.executeUpdate();
 if(i > 0)
 {
-    response.sendRedirect("index.jsp");
+    response.sendRedirect("connect.jsp");
     //out.print("Record Updated Successfully");
 }
 else
