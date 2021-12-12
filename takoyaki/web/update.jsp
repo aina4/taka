@@ -1,8 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-<!DOCTYPE html>
-<%@ page import="java.sql.*" %>
-<%@ page import="java.io.*" %>
 <%@page import="java.sql.DriverManager"%>
 <%@page import="java.sql.ResultSet"%>
 <%@page import="java.sql.Statement"%>
@@ -23,6 +20,15 @@ Connection connection = null;
 Statement statement = null;
 ResultSet resultSet = null;
 %>
+<%
+try{
+connection = DriverManager.getConnection(connectionUrl+database, userid, password);
+statement=connection.createStatement();
+String sql ="select * from customers where custID="+custID;
+resultSet = statement.executeQuery(sql);
+while(resultSet.next()){
+%>
+<!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
     <meta charset="UTF-8">    
@@ -158,63 +164,52 @@ ResultSet resultSet = null;
 <body>
     
         <div class="container">
-            <%
-        try{
-        connection = DriverManager.getConnection(connectionUrl+database, userid, password);
-        statement=connection.createStatement();
-        String sql ="select * from customers ";
-        resultSet = statement.executeQuery(sql);
-        if(resultSet.next()){
-        %>
           <div class="title">Update Profile</div>
 		    <div class="row">
 			 <div class="column"></div>
 
 			    <div class="column">
-                    <form action="#">
-		            <div class="user-details">
+                    <form action="update-process.jsp" method="post">
+		    <div class="user-details">
                                 
-                                                    
+                     <input type="hidden" name="custID" value="<%=resultSet.getString("custID") %>">                      
+                        
                     <div class="input-box">
                     <span class="details">Username</span>
-                    <input type="text" placeholder="<%=resultSet.getString("custUsername") %>" readonly>
+                    <input type="text" value="<%=resultSet.getString("custUsername") %>"  name="custUsername" >
                     </div>
                                 
                     <div class="input-box">
                     <span class="details">Phone Number</span>
-                    <input type="text" placeholder="<%=resultSet.getString("custPhoneNum") %>" readonly>
+                    <input type="text" value="<%=resultSet.getString("custPhoneNum") %>"  name="custPhoneNum" >
                     </div>
                                 
                     <div class="input-box">
                     <span class="details">Password</span>
-                    <input type="text" placeholder="<%=resultSet.getString("custPwd") %>" readonly>
+                    <input type="text" value="<%=resultSet.getString("custPwd") %>"  name="custPwd" >
                     </div>
                                 
                     <div class="input-box">
                     <span class="details">Email</span>
-                    <input type="text" placeholder="<%=resultSet.getString("custEmail") %>" readonly>
+                    <input type="text" value="<%=resultSet.getString("custEmail") %>"  name="custEmail" >
                     </div>
                     
                     </div>  
 
-                    <div class="input-box button" align="center">
-                        <a href="update.jsp?custID=<%=resultSet.getString("custID")%>">
-                        <input type="button" value="Update">
-                        </a>
+                    <div class="input-box button">
+                        <input type="Submit" value="submit">
                     </div>
                             
                     </form>
                 </div>    
             </div>
-                    <%
-        }
-        connection.close();
-        } catch (Exception e) {
-        e.printStackTrace();
-        }
-        %>
         </div>
-        
+        <%
+    }
+    connection.close();
+    } catch (Exception e) {
+    e.printStackTrace();
+    }
+    %>            
 </body>
-
 </html>
