@@ -41,39 +41,35 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit thi
     <body>
         <div class="container-login100" style="background-image: url('background.jpg');">
 		<div class="wrap-login100 p-l-55 p-r-55 p-t-80 p-b-30">
-			<form class="login100-form validate-form">
+			<form class="login100-form validate-form" action="custSignUp.jsp">
 				
 				<span class="login100-form-title p-b-37">
 					Sign Up
 				</span>
-				<div class="wrap-input100 validate-input m-b-20" data-validate="Enter your name">
-					<input class="input100" type="text" name="username" placeholder="Full name">
-					<span class="focus-input100"></span>
-				</div>
 				<div class="wrap-input100 validate-input m-b-20" data-validate="Enter username">
-					<input class="input100" type="text" name="username" placeholder="Username">
+					<input class="input100" type="text" name="username" placeholder="Username" required>
 					<span class="focus-input100"></span>
 				</div>
 				
 				<div class="wrap-input100 validate-input m-b-20" data-validate="Enter your phone number">
-					<input class="input100" type="text" name="username" placeholder="Phone Number">
+					<input class="input100" type="text" name="phoneNumber" placeholder="Phone Number" required>
 					<span class="focus-input100"></span>
 				</div>
 
 				<div class="wrap-input100 validate-input m-b-20" data-validate="Enter your mail">
-					<input class="input100" type="text" name="username" placeholder="Email">
+					<input class="input100" type="text" name="email" placeholder="Email" required>
 					<span class="focus-input100"></span>
 				</div>
 
 				<div class="wrap-input100 validate-input m-b-25" data-validate = "Enter password">
-					<input class="input100" type="password" name="pass" placeholder="Password">
+					<input class="input100" type="password" name="pass" placeholder="Password" required>
 					<span class="focus-input100"></span>
 				</div>
-				<div class="wrap-input100 validate-input m-b-25" data-validate = "Re-enter password">
-					<input class="input100" type="password" name="pass" placeholder="Re-enter password">
+				<!-- <div class="wrap-input100 validate-input m-b-25" data-validate = "Re-enter password">
+					<input class="input100" type="password" name="passRe" placeholder="Re-enter password">
 					<span class="focus-input100"></span>
-				</div>
-
+				</div> -->
+				<span style="color:red;">${error}</span><br><br>
 				<div class="container-login100-form-btn">
 					<button class="login100-form-btn">
 						Sign Up
