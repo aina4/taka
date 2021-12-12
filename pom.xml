@@ -88,19 +88,17 @@
     </dependency>
   </dependencies>
 	
-	<dependencies>
-    <dependency>
-      <groupId>org.springframework.boot</groupId>
-      <artifactId>spring-boot-starter-actuator</artifactId>
-    </dependency>
-    <dependency>
-      <groupId>org.springframework.boot</groupId>
-      <artifactId>spring-boot-starter-web</artifactId>
-    </dependency>
-	
   <build>
 	  
-    
+    <plugins>
+	    <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <configuration>
+            <mainClass>com.example.springbootdocker.SpringBootDockerApplication</mainClass>
+                        </configuration>
+            </plugin>
+      <plugin>
 	      
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-maven-plugin</artifactId>
