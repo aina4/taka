@@ -30,7 +30,7 @@
 				}
 				else {
 					request.setAttribute("error", "Wrong username or password. Try Again");
-					RequestDispatcher rd = request.getRequestDispatcher("index.jsp");
+					RequestDispatcher rd = request.getRequestDispatcher("signIn.jsp");
 					rd.include(request, response);
 				} 
 				con.close(); 
