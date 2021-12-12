@@ -84,7 +84,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit thi
 
 
 				<div class="text-center">
-					<a href="index.html" class="txt2 hov1">
+					<a href="signIn.jsp" class="txt2 hov1">
 						Sign In
 					</a>
 				</div>
