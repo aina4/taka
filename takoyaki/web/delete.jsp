@@ -31,7 +31,7 @@
         
         <script>
             
-            alert("Succesfull Deleted!");
+            alert("Succesful Deleted!");
             window.location.href="index.jsp";
             
        </script>
