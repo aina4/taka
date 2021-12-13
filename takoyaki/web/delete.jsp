@@ -10,16 +10,22 @@
      <body>
    
 <%
-       String id = request.getParameter("id");
-        Connection con;
-        PreparedStatement pst;
-        ResultSet rs;
-        
-        Class.forName("com.mysql.jdbc.Driver");
-        con = DriverManager.getConnection("jdbc:mysql://localhost/testdb","root","");
-        pst = con.prepareStatement("delete from customer where id = ?");
-         pst.setString(1, id);
-        pst.executeUpdate();  
+             String id = request.getParameter("id");
+             int idcust = Integer.parseInt(id);
+       
+            Connection con;
+            /*PreparedStatement pst;*/
+            ResultSet rs;
+            
+            Class.forName("com.mysql.jdbc.Driver").newInstance();
+            con = DriverManager.getConnection("jdbc:mysql://localhost/testdb","root","");
+            Statement pst = con.createStatement();
+            pst.executeUpdate("delete from customer where id = '"+idcust+"'");
+            response.sendRedirect("index.jsp");
+            
+            
+            
+          
         
         %>
         
@@ -31,5 +37,3 @@
        </script>
      </body>
  </html>
-       
-    
